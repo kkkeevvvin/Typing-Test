@@ -1,18 +1,31 @@
-<!-- inside index.html -->
 <html>
-<head>
-  <title>Typing game</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1>Typing game!</h1>
-  <p>Practice your typing skills with a quote from Sherlock Holmes. Click **start** to begin!</p>
-  <p id="quote"></p> <!-- This will display our quote -->
-  <p id="message"></p> <!-- This will display any status messages -->
-  <div>
-    <input type="text" aria-label="current word" id="typed-value" /> <!-- The textbox for typing -->
-    <button type="button" id="start">Start</button> <!-- To start the game -->
-  </div>
-  <script src="script.js"></script>
-</body>
+  <head>
+    <title>Typing game</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Typing game!</h1>
+    <p>
+      Practice your typing skills with a quote from Sherlock Holmes. Click
+      **start** to begin!
+    </p>
+    <p id="quote">
+      Everybody wants to be famous, but nobody wants to do the work. I live by
+      that. You grind hard so you can play hard. At the end of the day, you put
+      all the work in, and eventually it'll pay off. It could be in a year, it
+      could be in 30 years. Eventually, your hard work will pay off.” - Kevin
+      Hart
+    </p>
+    <!-- This will display our quote -->
+    <p id="message"></p>
+    <!-- This will display any status messages -->
+    <div>
+      <input type="text" aria-label="current word" id="typed-value" />
+      <!-- The textbox for typing -->
+      <button type="button" id="start">Start</button>
+      <!-- To start the game -->
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
