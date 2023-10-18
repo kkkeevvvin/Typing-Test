@@ -1,0 +1,27 @@
+/* inside style.css */
+html {
+  font-family: sans-serif;
+  background-color: black;
+  color: #ccc;
+}
+
+body {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+h1 {
+  display: flex;
+  height: 20vh;
+  text-align: center;
+  justify-items: center;
+}
+
+.highlight {
+  background-color: yellow;
+}
+
+.error {
+  background-color: lightcoral;
+  border: red;
+}
