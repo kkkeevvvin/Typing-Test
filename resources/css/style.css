@@ -69,11 +69,11 @@ div {
 }
 
 .highlight {
-  background-color: yellow;
-  color: #aaa;
+  /* background-color: yellow; */
+  color: lightgreen;
 }
 
 .error {
-  background-color: lightcoral;
+  /* background-color: lightcoral; */
   border: red;
 }
