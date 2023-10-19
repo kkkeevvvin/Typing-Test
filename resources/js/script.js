@@ -76,6 +76,8 @@ typedValueElement.addEventListener("input", () => {
     // Display success
     timerStart = false;
     typedValueElement.disabled = true;
+    typedValueElement.value = "";
+    quoteElement.childNodes[wordIndex].className = "";
     const elapsedTime = new Date().getTime() - startTime;
     const message = `CONGRATULATIONS! You finished in ${
       elapsedTime / 1000
@@ -85,12 +87,13 @@ typedValueElement.addEventListener("input", () => {
     // end of word
     // clear the typedValueElement for the new word
     typedValueElement.value = "";
+    quoteElement.childNodes[wordIndex].className = "";
     // move to the next word
     wordIndex++;
     // reset the class name for all elements in quote
-    for (const wordElement of quoteElement.childNodes) {
-      wordElement.className = "";
-    }
+    // for (const wordElement of quoteElement.childNodes) {
+    //   wordElement.className = "";
+    // }
     // highlight the new word
     quoteElement.childNodes[wordIndex].className = "highlight";
   } else if (currentWord.startsWith(typedValue)) {
