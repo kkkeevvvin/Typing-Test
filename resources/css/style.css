@@ -28,16 +28,22 @@ h1 {
   font-size: 50px;
 }
 
-p {
-  font-size: 32px;
-}
-
 div {
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
+}
+
+#quote-box {
+  width: 90%;
+  height: 20vh;
+  padding: 30px 0;
+}
+
+p {
+  font-size: 32px;
 }
 
 #typed-value {

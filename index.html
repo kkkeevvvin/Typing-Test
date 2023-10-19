@@ -3,20 +3,14 @@
     <title>Typing game</title>
     <link rel="stylesheet" href="./resources/css/reset.css" />
     <link rel="stylesheet" href="./resources/css/style.css" />
-    <script async src="./resources/js/script.js"></script>
   </head>
   <body>
     <h1>Typing game!</h1>
-    <!-- <p>
-      Practice your typing skills with a quote from Sherlock Holmes. Click
-      **start** to begin!
-    </p> -->
-    <p id="quote">
-      
-    </p>
-    <!-- This will display our quote -->
-    <p id="message"></p>
-    <!-- This will display any status messages -->
+    <!--This will display our quote -->
+    <div id="quote-box">
+      <p id="quote"></p>
+    </div>
+    <!-- input section-->
     <div>
       <input
         type="text"
@@ -28,6 +22,10 @@
       <button type="button" id="start-button">Start</button>
       <!-- To start the game -->
     </div>
-    <script src="script.js"></script>
+    <!-- This will display any status messages -->
+    <div>
+      <p id="message"></p>
+    </div>
+    <script src="./resources/js/script.js"></script>
   </body>
 </html>
