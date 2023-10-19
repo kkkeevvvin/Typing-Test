@@ -1,14 +1,3 @@
-// all of our quotes
-const quotes = [
-  "When you have eliminated the impossible, whatever remains, however improbable, must be the truth.",
-  "There is nothing more deceptive than an obvious fact.",
-  "I ought to know by this time that when a fact appears to be opposed to a long train of deductions it invariably proves to be capable of bearing some other interpretation.",
-  "I never make exceptions. An exception disproves the rule.",
-  "What one man can invent another can discover.",
-  "Nothing clears up a case so much as stating it to another person.",
-  "Education never ends, Watson. It is a series of lessons, with the greatest for the last.",
-  "Everybody wants to be famous, but nobody wants to do the work. I live by that. You grind hard so you can play hard. At the end of the day, you put all the work in, and eventually it'll pay off. It could be in a year, it could be in 30 years. Eventually, your hard work will pay off. - Kevin Hart",
-];
 // store the list of words and the index of the word the player is currently typing
 let words = [];
 let wordIndex = 0;
@@ -19,12 +8,26 @@ const quoteElement = document.getElementById("quote");
 const messageElement = document.getElementById("message");
 const typedValueElement = document.getElementById("typed-value");
 
+function randQuote() {
+  // all of our quotes
+  const quotes = [
+    "When you have eliminated the impossible, whatever remains, however improbable, must be the truth.",
+    "There is nothing more deceptive than an obvious fact.",
+    "I ought to know by this time that when a fact appears to be opposed to a long train of deductions it invariably proves to be capable of bearing some other interpretation.",
+    "I never make exceptions. An exception disproves the rule.",
+    "What one man can invent another can discover.",
+    "Nothing clears up a case so much as stating it to another person.",
+    "Education never ends, Watson. It is a series of lessons, with the greatest for the last.",
+    "Everybody wants to be famous, but nobody wants to do the work. I live by that. You grind hard so you can play hard. At the end of the day, you put all the work in, and eventually it'll pay off. It could be in a year, it could be in 30 years. Eventually, your hard work will pay off. - Kevin Hart",
+  ];
+
+  const quoteIndex = Math.floor(Math.random() * quotes.length);
+  return quotes[quoteIndex];
+}
 // fuctions here
 document.getElementById("start-button").addEventListener("click", () => {
-  console.log("get start button pressed.");
   // get a quote
-  const quoteIndex = Math.floor(Math.random() * quotes.length);
-  const quote = quotes[quoteIndex];
+  const quote = randQuote();
   // Put the quote into an array of words
   words = quote.split(" ");
   // reset the word index for tracking
