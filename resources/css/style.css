@@ -18,6 +18,12 @@ body {
   align-items: center;
 }
 
+/**********************************/
+/**********************************/
+/************* header *************/
+/**********************************/
+/**********************************/
+
 h1 {
   display: flex;
   /* justify-content: center; */
@@ -32,6 +38,11 @@ a {
   font-size: 50px;
 }
 
+/**********************************/
+/**********************************/
+/**********Quote*******************/
+/**********************************/
+/**********************************/
 div {
   width: 100%;
   display: flex;
@@ -63,10 +74,6 @@ p {
   border: none;
   border-radius: 10px;
   outline: none;
-}
-#typed-value::placeholder {
-  color: #ccc;
-  text-align: center;
 }
 
 #restart-button {
@@ -100,5 +107,5 @@ p {
 
 .error {
   /* background-color: lightcoral; */
-  border: red;
+  color: red;
 }
