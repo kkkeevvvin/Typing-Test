@@ -24,6 +24,9 @@ function randQuote() {
   const quoteIndex = Math.floor(Math.random() * quotes.length);
   return quotes[quoteIndex];
 }
+
+function gameSetUp() {}
+
 // fuctions here
 document.getElementById("start-button").addEventListener("click", () => {
   // get a quote
@@ -47,6 +50,7 @@ document.getElementById("start-button").addEventListener("click", () => {
 
   // Setup the textbox
   // Clear the textbox
+  typedValueElement.disabled = false;
   typedValueElement.value = "";
   // set focus
   typedValueElement.focus();
@@ -65,6 +69,7 @@ typedValueElement.addEventListener("input", () => {
   if (typedValue === currentWord && wordIndex === words.length - 1) {
     // end of sentence
     // Display success
+    typedValueElement.disabled = true;
     const elapsedTime = new Date().getTime() - startTime;
     const message = `CONGRATULATIONS! You finished in ${
       elapsedTime / 1000
