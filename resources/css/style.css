@@ -76,6 +76,8 @@ p {
   margin: 15px;
 
   font-size: 24px;
+  background-color: #444;
+  color: #ccc;
 }
 
 .highlight {
