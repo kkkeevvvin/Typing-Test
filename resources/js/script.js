@@ -2,11 +2,13 @@
 let words = [];
 let wordIndex = 0;
 // the starting time
+let timerStart = false;
 let startTime = Date.now();
 // page elements
 const quoteElement = document.getElementById("quote");
 const messageElement = document.getElementById("message");
 const typedValueElement = document.getElementById("typed-value");
+const restartButton = document.getElementById("restart-button");
 
 function randQuote() {
   // all of our quotes
@@ -56,9 +58,8 @@ const gameSetUp = function () {
 gameSetUp();
 
 // fuctions here
-document.getElementById("restart-button").addEventListener("click", gameSetUp);
+restartButton.addEventListener("click", gameSetUp);
 
-let timerStart = false;
 typedValueElement.addEventListener("input", () => {
   // Get the current word
   const currentWord = words[wordIndex];
