@@ -25,10 +25,7 @@ function randQuote() {
   return quotes[quoteIndex];
 }
 
-function gameSetUp() {}
-
-// fuctions here
-document.getElementById("start-button").addEventListener("click", () => {
+const gameSetUp = function () {
   // get a quote
   const quote = randQuote();
   // Put the quote into an array of words
@@ -54,21 +51,30 @@ document.getElementById("start-button").addEventListener("click", () => {
   typedValueElement.value = "";
   // set focus
   typedValueElement.focus();
-  // set the event handler
+};
 
-  // Start the timer
-  startTime = new Date().getTime();
-});
+gameSetUp();
 
+// fuctions here
+document.getElementById("start-button").addEventListener("click", gameSetUp);
+
+let timerStart = false;
 typedValueElement.addEventListener("input", () => {
   // Get the current word
   const currentWord = words[wordIndex];
   // get the current value
   const typedValue = typedValueElement.value;
 
+  if (typedValue && !timerStart) {
+    console.log("start timer!");
+    timerStart = true;
+    startTime = new Date().getTime();
+  }
+
   if (typedValue === currentWord && wordIndex === words.length - 1) {
     // end of sentence
     // Display success
+    timerStart = false;
     typedValueElement.disabled = true;
     const elapsedTime = new Date().getTime() - startTime;
     const message = `CONGRATULATIONS! You finished in ${
