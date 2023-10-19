@@ -56,7 +56,7 @@ const gameSetUp = function () {
 gameSetUp();
 
 // fuctions here
-document.getElementById("start-button").addEventListener("click", gameSetUp);
+document.getElementById("restart-button").addEventListener("click", gameSetUp);
 
 let timerStart = false;
 typedValueElement.addEventListener("input", () => {

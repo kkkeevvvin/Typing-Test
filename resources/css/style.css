@@ -35,7 +35,7 @@ a {
 div {
   width: 100%;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
 }
@@ -66,9 +66,10 @@ p {
 }
 #typed-value::placeholder {
   color: #ccc;
+  text-align: center;
 }
 
-#start-button {
+#restart-button {
   height: 60px;
   width: 100px;
   border: none;
@@ -76,8 +77,20 @@ p {
   margin: 15px;
 
   font-size: 24px;
-  background-color: #444;
+  background-color: black;
   color: #ccc;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#restart-button:hover {
+  cursor: pointer;
+}
+#restart-button-img {
+  display: block;
+  width: 50%;
+  filter: contrast(30%);
 }
 
 .highlight {
