@@ -1,14 +1,14 @@
 import { TypeSet } from "./resources/js/typeset.js";
 
 // Initial function variables
-let timerState = false;
-let startTime;
+let startTime = undefined;
 // store the list of words and the index of the word the player is currently typing
 let words = [];
 let wordIndex = 0;
 
 // Initial setting variables
 let lang = "en";
+// let lang = "chinese";
 let typeSubset = "quote";
 
 // page elements
@@ -23,7 +23,7 @@ async function gameSetUp() {
   // reset the word index for tracking
   wordIndex = 0;
   // set timerState false to restart timer
-  timerState = false;
+  startTime = undefined;
 
   // setup the type set
   await currentTypeSet.fetchLangSet();
@@ -31,7 +31,6 @@ async function gameSetUp() {
   currentTypeSet.generateParagraph();
   // set global variable for textbox
   words = currentTypeSet.words;
-  console.log(words);
   // get a quote and updates UI
   quoteElement.innerHTML = currentTypeSet.innerHTML;
   // Highlight the first word
@@ -46,6 +45,14 @@ async function gameSetUp() {
   typedValueElement.value = "";
   // set focus
   typedValueElement.focus();
+
+  typedValueElement.addEventListener(
+    "input",
+    () => {
+      startTime = new Date().getTime();
+    },
+    { once: true }
+  );
 }
 
 // Initial game setup
@@ -61,22 +68,14 @@ typedValueElement.addEventListener("input", () => {
   // get the current value
   const typedValue = typedValueElement.value;
 
-  if (typedValue && !timerState) {
-    timerState = true;
-    startTime = new Date().getTime();
-  }
-
   if (typedValue === currentWord && wordIndex === words.length - 1) {
     // end of sentence
-    // reset timer state
-    timerState = false;
     // reset last word state
     quoteElement.childNodes[wordIndex].className = "";
     // disable textbox input
     typedValueElement.disabled = true;
     // clear textbox
     typedValueElement.value = "";
-
     // Display success
     const elapsedTime = new Date().getTime() - startTime;
     const message = `CONGRATULATIONS! You finished in ${
