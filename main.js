@@ -22,8 +22,6 @@ let currentTypeSet = new TypeSet(lang, typeSubset);
 async function gameSetUp() {
   // reset the word index for tracking
   wordIndex = 0;
-  // set timerState false to restart timer
-  startTime = undefined;
 
   // setup the type set
   await currentTypeSet.fetchLangSet();
@@ -45,7 +43,7 @@ async function gameSetUp() {
   typedValueElement.value = "";
   // set focus
   typedValueElement.focus();
-
+  // record the time when first input occur
   typedValueElement.addEventListener(
     "input",
     () => {
