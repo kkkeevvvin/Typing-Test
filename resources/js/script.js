@@ -1,6 +1,8 @@
 // store the list of words and the index of the word the player is currently typing
 let words = [];
 let wordIndex = 0;
+// timer state
+let timerState = false;
 // page elements
 const quoteElement = document.getElementById("quote");
 const messageElement = document.getElementById("message");
@@ -32,6 +34,8 @@ const gameSetUp = function () {
   words = quote.split(" ");
   // reset the word index for tracking
   wordIndex = 0;
+  // set timerState false to restart timer
+  timerState = false;
 
   // UI updates
   // Create an array of span elements so we can set a class
@@ -62,7 +66,6 @@ restartButton.addEventListener("click", gameSetUp);
 
 // Process Textbox Input
 (function () {
-  let timerState = false;
   let startTime;
 
   typedValueElement.addEventListener("input", () => {
