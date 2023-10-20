@@ -8,7 +8,7 @@ let words = [];
 let wordIndex = 0;
 
 // Initial setting variables
-let lang = "chinese";
+let lang = "en";
 let typeSubset = "quote";
 
 // page elements
@@ -20,22 +20,20 @@ const restartButton = document.getElementById("restart-button");
 let currentTypeSet = new TypeSet(lang, typeSubset);
 
 async function gameSetUp() {
-  // get a quote
-  const quote = await currentTypeSet.randParagraph();
-  // Put the quote into an array of words
-  words = quote.split(" ");
   // reset the word index for tracking
   wordIndex = 0;
   // set timerState false to restart timer
   timerState = false;
 
-  // UI updates
-  // Create an array of span elements so we can set a class
-  const spanWords = words.map(function (word) {
-    return `<span>${word} </span>`;
-  });
-  // Convert into string and set as innerHTML on quote display
-  quoteElement.innerHTML = spanWords.join("");
+  // setup the type set
+  await currentTypeSet.fetchLangSet();
+  // generate paragraph
+  currentTypeSet.generateParagraph();
+  // set global variable for textbox
+  words = currentTypeSet.words;
+  console.log(words);
+  // get a quote and updates UI
+  quoteElement.innerHTML = currentTypeSet.innerHTML;
   // Highlight the first word
   quoteElement.childNodes[0].className = "highlight";
   // Clear any prior messages
